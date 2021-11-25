@@ -1,0 +1,22 @@
+# OSX
+.DS_Store
+
+# IDE
+.idea
+.vscode
+
+# bundle files
+dist/
+
+# npm
+node_modules/
+package-lock.json
+
+# tests
+coverage/
+
+# dev
+.env
+
+# release changelog
+CHANGELOG.md
