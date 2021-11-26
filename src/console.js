@@ -9,9 +9,19 @@ const respondOk = async (message) => {
     console.log(chalk.green(`✔ ${message}`))
 }
 
-const abortWithMessage = (message) => {
+const respondError = async (message) => {
+    await sleep(500)
     console.log(chalk.red(`✖ ${message}`))
+}
+
+const abort = () => {
     process.exit(1)
 }
 
-export { sleep, respondOk, abortWithMessage }
+const abortWithMessage = (message) => {
+    respondError(message).then( () => {
+        abort()
+    })
+}
+
+export { sleep, respondOk, respondError, abort, abortWithMessage }

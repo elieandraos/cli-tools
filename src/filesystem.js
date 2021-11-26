@@ -19,14 +19,18 @@ const isFile = (src) => {
     return stat.isFile()
 }
 
-const empty = (src) => {
+const createDirectory = (dir, options = {}) => {
+    fs.mkdirSync(dir, options)
+}
+
+const emptyDirectory = (src) => {
     if (!isDirectory(src)) throw `directory ${src} does not exist`
 
     for (const file of fs.readdirSync(src)) {
         const abs = path.resolve(src, file)
 
         if (fs.lstatSync(abs).isDirectory()) {
-            empty(abs)
+            emptyDirectory(abs)
             fs.rmdirSync(abs)
         } else {
             fs.unlinkSync(abs)
@@ -45,7 +49,7 @@ const copyFile = (src, dest) => {
 }
 
 const copyDir = (src, dest) => {
-    fs.mkdirSync(dest, { recursive: true })
+    createDirectory(dest, { recursive: true })
 
     for (const file of fs.readdirSync(src)) {
         const srcFile = path.resolve(src, file)
@@ -54,4 +58,4 @@ const copyDir = (src, dest) => {
     }
 }
 
-export { exists, isDirectory, isFile, empty, copy }
+export { exists, isDirectory, isFile, createDirectory, emptyDirectory, copy }
