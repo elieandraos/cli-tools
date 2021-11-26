@@ -1,5 +1,5 @@
 require('dotenv').config()
-import { abortWithMessage } from "./console";
+import { abortWithMessage } from './console'
 
 const hasEnv = (vars) => {
     try {
@@ -23,7 +23,4 @@ const getEnv = (variable) => {
     }
 }
 
-export {
-    hasEnv,
-    getEnv
-}
+export { hasEnv, getEnv }

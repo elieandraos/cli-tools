@@ -1,6 +1,6 @@
 import fs from 'fs'
-import path from "path"
-import { abortWithMessage } from "./console";
+import path from 'path'
+import { abortWithMessage } from './console'
 
 const exists = (src) => {
     try {
@@ -59,7 +59,6 @@ const copyFile = (src, dest) => {
     } catch (e) {
         abortWithMessage(e)
     }
-
 }
 
 const copyDir = (src, dest) => {
@@ -75,12 +74,4 @@ const copyDir = (src, dest) => {
     }
 }
 
-export {
-    exists,
-    isDirectory,
-    isFile,
-    empty,
-    copy,
-    copyFile,
-    copyDir
-}
+export { exists, isDirectory, isFile, empty, copy, copyFile, copyDir }
