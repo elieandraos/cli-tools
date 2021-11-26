@@ -19,7 +19,7 @@ const abort = () => {
 }
 
 const abortWithMessage = (message) => {
-    respondError(message).then( () => {
+    respondError(message).then(() => {
         abort()
     })
 }
