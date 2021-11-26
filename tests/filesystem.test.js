@@ -49,8 +49,13 @@ it('checks if is a file', () => {
     expect(filesystem.isFile('dir/file2')).toBe(false)
 })
 
+it('it creates a directory', () => {
+    filesystem.createDirectory('dir/test')
+    expect(filesystem.isDirectory('dir/test')).toBe(true)
+})
+
 it('it empties the directory recursively', () => {
-    filesystem.empty('dir')
+    filesystem.emptyDirectory('dir')
 
     expect(filesystem.isDirectory('dir')).toBe(true)
     expect(filesystem.exists('dir/file1')).toBe(false)
@@ -59,13 +64,13 @@ it('it empties the directory recursively', () => {
 
 it('it throws an error if it empties a directory that does not exists', () => {
     expect(() => {
-        filesystem.empty('dir2')
+        filesystem.emptyDirectory('dir2')
     }).toThrow('directory dir2 does not exist')
 })
 
 it('it throws an error if it empties a file', () => {
     expect(() => {
-        filesystem.empty('dir/file1')
+        filesystem.emptyDirectory('dir/file1')
     }).toThrow('directory dir/file1 does not exist')
 })
 
