@@ -14,4 +14,8 @@ const abortWithMessage = (message) => {
     process.exit(1)
 }
 
-export { sleep, respondOk, abortWithMessage }
+export {
+    sleep,
+    respondOk,
+    abortWithMessage
+}
