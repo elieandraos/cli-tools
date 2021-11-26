@@ -1,77 +1,57 @@
 import fs from 'fs'
 import path from 'path'
-import { abortWithMessage } from './console'
 
 const exists = (src) => {
-    try {
-        return fs.existsSync(src)
-    } catch (e) {
-        abortWithMessage(e)
-    }
+    return fs.existsSync(src)
 }
 
 const isDirectory = (src) => {
-    try {
-        const stat = fs.statSync(src)
-        return stat.isDirectory()
-    } catch (e) {
-        abortWithMessage(e)
-    }
+    if (!exists(src)) return false
+
+    const stat = fs.statSync(src)
+    return stat.isDirectory()
 }
 
 const isFile = (src) => {
-    return !isDirectory(src)
+    if (!exists(src)) return false
+
+    const stat = fs.statSync(src)
+    return stat.isFile()
 }
 
 const empty = (src) => {
-    try {
-        for (const file of fs.readdirSync(src)) {
-            const abs = path.resolve(src, file)
+    if (!isDirectory(src)) throw `directory ${src} does not exist`
 
-            if (fs.lstatSync(abs).isDirectory()) {
-                empty(abs)
-                fs.rmdirSync(abs)
-            } else {
-                fs.unlinkSync(abs)
-            }
+    for (const file of fs.readdirSync(src)) {
+        const abs = path.resolve(src, file)
+
+        if (fs.lstatSync(abs).isDirectory()) {
+            empty(abs)
+            fs.rmdirSync(abs)
+        } else {
+            fs.unlinkSync(abs)
         }
-    } catch (e) {
-        abortWithMessage(e)
     }
 }
 
 const copy = (src, dest) => {
-    try {
-        const stat = fs.statSync(src)
-        if (stat.isDirectory()) {
-            copyDir(src, dest)
-        } else {
-            copyFile(src, dest)
-        }
-    } catch (e) {
-        abortWithMessage(e)
-    }
+    if (!exists(src)) throw `No such file or directory ${src}`
+
+    isDirectory(src) ? copyDir(src, dest) : copyFile(src, dest)
 }
 
 const copyFile = (src, dest) => {
-    try {
-        fs.copyFileSync(src, dest)
-    } catch (e) {
-        abortWithMessage(e)
-    }
+    fs.copyFileSync(src, dest)
 }
 
 const copyDir = (src, dest) => {
-    try {
-        fs.mkdirSync(dest, { recursive: true })
-        for (const file of fs.readdirSync(src)) {
-            const srcFile = path.resolve(src, file)
-            const destFile = path.resolve(dest, file)
-            copy(srcFile, destFile)
-        }
-    } catch (e) {
-        abortWithMessage(e)
+    fs.mkdirSync(dest, { recursive: true })
+
+    for (const file of fs.readdirSync(src)) {
+        const srcFile = path.resolve(src, file)
+        const destFile = path.resolve(dest, file)
+        copy(srcFile, destFile)
     }
 }
 
-export { exists, isDirectory, isFile, empty, copy, copyFile, copyDir }
+export { exists, isDirectory, isFile, empty, copy }
