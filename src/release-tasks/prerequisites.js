@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { execa } from 'execa'
+import execa from 'execa'
 import { isDirectory, respondOk, abortWithMessage, exists } from '../index'
 
 const checkIfGitIsInitialized = async (root) => {
