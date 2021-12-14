@@ -4,6 +4,12 @@
 
 ### Changed
 
+-   :zap: optimize bundle size
+
+## v0.0.3
+
+### Changed
+
 -   :bulb: updated documentation
 
 ## v0.0.2
