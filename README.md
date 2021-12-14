@@ -2,6 +2,17 @@
 
 #### File system:
 
+```javascript
+import {
+    exists,
+    isDirectory,
+    isFile,
+    createDirectory,
+    emptyDirectory,
+    copy,
+} from '@elieandraos/cli-tools'
+```
+
 | function              | Description                                                      |
 | --------------------- | ---------------------------------------------------------------- |
 | exists(path)          | Checks if a directory exists                                     |
@@ -13,6 +24,16 @@
 
 #### Console:
 
+```javascript
+import {
+    sleep,
+    respondOk,
+    respondError,
+    abort,
+    abortWithMesage,
+} from '@elieandraos/cli-tools'
+```
+
 | function             | Description                                      |
 | -------------------- | ------------------------------------------------ |
 | sleep(ms)            | Sets a timeout for a given milliseconds          |
@@ -23,6 +44,10 @@
 
 #### Env:
 
+```javascript
+import { getEnv, hasEnv } from '@elieandraos/cli-tools'
+```
+
 | function    | Description                                |
 | ----------- | ------------------------------------------ |
 | getEnv(var) | Gets the value of the environment variable |
@@ -31,6 +56,7 @@
 #### Release:
 
 ```javascript
+import { release } from '@elieandraos/cli-tools'
 release() // see release automation details
 ```
 
