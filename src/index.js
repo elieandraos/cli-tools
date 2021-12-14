@@ -17,6 +17,8 @@ import {
     copy,
 } from './filesystem'
 
+import release from "./release";
+
 export {
     // console
     sleep,
@@ -34,4 +36,6 @@ export {
     createDirectory,
     emptyDirectory,
     copy,
+    // release
+    release
 }
