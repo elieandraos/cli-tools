@@ -19,7 +19,7 @@ import {
 
 import release from './release'
 
-export {
+export default {
     // console
     sleep,
     respondOk,
