@@ -2,34 +2,38 @@
 
 #### File system:
 
-| function              | Description                                                                     |
-|-----------------------| ------------------------------------------------------------------------------- |
-| exists(path)          | Checks if a directory exists
-| isDirectory(path)     | Checks if a given path is a directory
-| isFile(path)          | Checks if a given path is a file
-| createDirectory(path) | Creates a directory in a given path
-| emptyDirectory(path)  | Empties a given directory from all its content
-| copy(src,dest)        | Copies (recursive) a given directory/file to the new destination
+| function              | Description                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| exists(path)          | Checks if a directory exists                                     |
+| isDirectory(path)     | Checks if a given path is a directory                            |
+| isFile(path)          | Checks if a given path is a file                                 |
+| createDirectory(path) | Creates a directory in a given path                              |
+| emptyDirectory(path)  | Empties a given directory from all its content                   |
+| copy(src,dest)        | Copies (recursive) a given directory/file to the new destination |
 
 #### Console:
-| function             | Description                                                                     |
-|----------------------| ------------------------------------------------------------------------------- |
-| sleep(ms)            | Sets a timeout for a given milliseconds
-| respondOk(msg)       | Prints a success console message
-| respondError(msg)    | Prints an error console message
-| abort()              | Stops and exits the script
-| abortWithMesage(msg) | Stops and exits the script with an error message
+
+| function             | Description                                      |
+| -------------------- | ------------------------------------------------ |
+| sleep(ms)            | Sets a timeout for a given milliseconds          |
+| respondOk(msg)       | Prints a success console message                 |
+| respondError(msg)    | Prints an error console message                  |
+| abort()              | Stops and exits the script                       |
+| abortWithMesage(msg) | Stops and exits the script with an error message |
 
 #### Env:
-| function    | Description                                                                     |
-|-------------| ------------------------------------------------------------------------------- |
-| getEnv(var) | Gets the value of the environment variable
-| hasEnv(var) | Checks if the environment variable exists
+
+| function    | Description                                |
+| ----------- | ------------------------------------------ |
+| getEnv(var) | Gets the value of the environment variable |
+| hasEnv(var) | Checks if the environment variable exists  |
 
 #### Release:
+
 ```javascript
 release() // see release automation details
 ```
+
 # Release automation
 
 #### It will:
