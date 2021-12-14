@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import execa from 'execa'
-import _ from "./../index"
+import _ from './../index'
 
 const checkIfGitIsInitialized = async (root) => {
     try {
@@ -31,7 +31,9 @@ const checkIfGitDirectoryIsClean = async (root) => {
         })
 
         stdout
-            ? _.abortWithMessage('git directory is not clean, push your changes')
+            ? _.abortWithMessage(
+                  'git directory is not clean, push your changes'
+              )
             : await _.respondOk('git directory is clean')
     } catch (e) {
         _.abortWithMessage(e)
