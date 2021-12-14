@@ -6,31 +6,31 @@ import _ from '@elieandraos/cli-tools'
 
 #### File system:
 
-| function              | Description                                                      |
-|-----------------------| ---------------------------------------------------------------- |
-| _.exists(path)        | Checks if a directory exists                                     |
-| _.isDirectory(path)     | Checks if a given path is a directory                            |
-| _.isFile(path)          | Checks if a given path is a file                                 |
-| _.createDirectory(path) | Creates a directory in a given path                              |
-| _.emptyDirectory(path)  | Empties a given directory from all its content                   |
-| _.copy(src,dest)        | Copies (recursive) a given directory/file to the new destination |
+| function                 | Description                                                      |
+| ------------------------ | ---------------------------------------------------------------- |
+| \_.exists(path)          | Checks if a directory exists                                     |
+| \_.isDirectory(path)     | Checks if a given path is a directory                            |
+| \_.isFile(path)          | Checks if a given path is a file                                 |
+| \_.createDirectory(path) | Creates a directory in a given path                              |
+| \_.emptyDirectory(path)  | Empties a given directory from all its content                   |
+| \_.copy(src,dest)        | Copies (recursive) a given directory/file to the new destination |
 
 #### Console:
 
-| function             | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| _.sleep(ms)            | Sets a timeout for a given milliseconds          |
-| _.respondOk(msg)       | Prints a success console message                 |
-| _.respondError(msg)    | Prints an error console message                  |
-| _.abort()              | Stops and exits the script                       |
-| _.abortWithMesage(msg) | Stops and exits the script with an error message |
+| function                | Description                                      |
+| ----------------------- | ------------------------------------------------ |
+| \_.sleep(ms)            | Sets a timeout for a given milliseconds          |
+| \_.respondOk(msg)       | Prints a success console message                 |
+| \_.respondError(msg)    | Prints an error console message                  |
+| \_.abort()              | Stops and exits the script                       |
+| \_.abortWithMesage(msg) | Stops and exits the script with an error message |
 
 #### Env:
 
-| function      | Description                                |
-|---------------| ------------------------------------------ |
-| _.getEnv(var) | Gets the value of the environment variable |
-| _.hasEnv(var)   | Checks if the environment variable exists  |
+| function       | Description                                |
+| -------------- | ------------------------------------------ |
+| \_.getEnv(var) | Gets the value of the environment variable |
+| \_.hasEnv(var) | Checks if the environment variable exists  |
 
 #### Release:
 
