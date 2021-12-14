@@ -7,12 +7,12 @@ import {
     checkIfChangelogExists,
 } from './prerequisites'
 
-import pickReleaseType from "./pickReleaseType";
-import bumpPackageVersion from "./bumpPackageVersion";
-import parseChangelog from "./parseChangelog";
-import createGithubTag from "./createGithubTag";
-import createGithubRelease from "./createGithubRelease";
-import publishToNpmRegistry from "./publishToNpmRegistry";
+import pickReleaseType from './pickReleaseType'
+import bumpPackageVersion from './bumpPackageVersion'
+import parseChangelog from './parseChangelog'
+import createGithubTag from './createGithubTag'
+import createGithubRelease from './createGithubRelease'
+import publishToNpmRegistry from './publishToNpmRegistry'
 
 export {
     checkIfGitIsInitialized,
@@ -26,5 +26,5 @@ export {
     parseChangelog,
     createGithubTag,
     createGithubRelease,
-    publishToNpmRegistry
+    publishToNpmRegistry,
 }
