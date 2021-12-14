@@ -1,16 +1,16 @@
 import execa from 'execa'
-import { respondOk, abortWithMessage } from './../index'
+import _ from './../index'
 
 const publishToNpmRegistry = async (version, root) => {
     try {
         await execa('npm', ['publish', '--access', 'public'], {
             cwd: root,
         })
-        await respondOk(
+        await _.respondOk(
             `published package version ${version} to npm registry 🚀🚀`
         )
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 

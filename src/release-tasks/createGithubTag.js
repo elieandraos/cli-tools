@@ -1,5 +1,5 @@
 import execa from 'execa'
-import { respondOk, abortWithMessage } from './../index'
+import _ from './../index'
 
 const createGithubTag = async (version, root) => {
     try {
@@ -13,9 +13,9 @@ const createGithubTag = async (version, root) => {
         await execa('git', ['push'])
         await execa('git', ['push', '--tags'])
 
-        await respondOk(`created github tag ${tag}`)
+        await _.respondOk(`created github tag ${tag}`)
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 

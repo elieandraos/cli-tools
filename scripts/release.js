@@ -1,11 +1,11 @@
 import path from 'path'
 import chalk from 'chalk'
-import release from '../src/release'
+import _ from 'src/index'
 
 const root = path.join(__dirname, '../')
 
 try {
-    release(root).then(() => {
+    _.release(root).then(() => {
         console.log(chalk.bgGreen.white('\nDONE! 🎉\n'))
     })
 } catch (e) {

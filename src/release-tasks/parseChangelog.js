@@ -1,6 +1,6 @@
 import execa from 'execa'
 import changelogParser from 'changelog-parser'
-import { respondOk, abortWithMessage } from './../index'
+import _ from './../index'
 
 const resetVersionedFiles = async (root) => {
     await execa('git', ['checkout', 'package.json', 'package-lock.json'], {
@@ -15,18 +15,18 @@ const parseChangelog = async (version, root) => {
 
         if (!changelog) {
             await resetVersionedFiles()
-            abortWithMessage(
+            _.abortWithMessage(
                 `could not find ${version} changelog - update CHANGELOG.md file`
             )
         } else {
-            await respondOk(
+            await _.respondOk(
                 `parsed version ${version} release content from the changelog file`
             )
             return changelog.body
         }
     } catch (e) {
         await resetVersionedFiles(root)
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 

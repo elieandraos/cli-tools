@@ -1,5 +1,5 @@
 import execa from 'execa'
-import { respondOk, abortWithMessage } from './../index'
+import _ from './../index'
 
 const bumpPackageVersion = async (releaseType, root) => {
     try {
@@ -18,10 +18,10 @@ const bumpPackageVersion = async (releaseType, root) => {
             }
         )
 
-        await respondOk(`bumped package version to ${stdout.slice(1)}`)
+        await _.respondOk(`bumped package version to ${stdout.slice(1)}`)
         return stdout
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 

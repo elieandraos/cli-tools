@@ -1,14 +1,14 @@
 import chalk from 'chalk'
 import execa from 'execa'
-import { isDirectory, respondOk, abortWithMessage, exists } from '../index'
+import _ from "./../index"
 
 const checkIfGitIsInitialized = async (root) => {
     try {
-        isDirectory(`${root}/.git`)
-            ? await respondOk('git is initialized')
-            : abortWithMessage('git is not initialized')
+        _.isDirectory(`${root}/.git`)
+            ? await _.respondOk('git is initialized')
+            : _.abortWithMessage('git is not initialized')
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 
@@ -18,9 +18,9 @@ const checkIfLoggedInToNpm = async (root) => {
             cwd: root,
         })
 
-        await respondOk(`logged in to npm registry as ${stdout}`)
+        await _.respondOk(`logged in to npm registry as ${stdout}`)
     } catch (e) {
-        abortWithMessage('You are not logged in to npm. run "npm login"')
+        _.abortWithMessage('You are not logged in to npm. run "npm login"')
     }
 }
 
@@ -31,10 +31,10 @@ const checkIfGitDirectoryIsClean = async (root) => {
         })
 
         stdout
-            ? abortWithMessage('git directory is not clean, push your changes')
-            : await respondOk('git directory is clean')
+            ? _.abortWithMessage('git directory is not clean, push your changes')
+            : await _.respondOk('git directory is clean')
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 
@@ -53,14 +53,14 @@ const checkIfEnvironmentVariablesAreSet = async () => {
         })
 
         missing.length
-            ? abortWithMessage(
+            ? _.abortWithMessage(
                   `These .env variables are not set: ${chalk.cyan(
                       missing.join(', ')
                   )}`
               )
-            : await respondOk('all .env variables are set')
+            : await _.respondOk('all .env variables are set')
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 
@@ -71,24 +71,24 @@ const checkIfLocalBranchIsTheReleaseBranchConfigured = async (root) => {
         })
 
         stdout !== process.env.RELEASE_BRANCH
-            ? abortWithMessage(
+            ? _.abortWithMessage(
                   'Your current local branch is different than the one configured in your .env file'
               )
-            : await respondOk(
+            : await _.respondOk(
                   'local branch is the same as the one configured in your .env file'
               )
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 
 const checkIfChangelogExists = async (root) => {
     try {
-        exists(`${root}changelog.md`)
-            ? await respondOk('changelog.md exists')
-            : abortWithMessage(`changelog.md is missing`)
+        _.exists(`${root}changelog.md`)
+            ? await _.respondOk('changelog.md exists')
+            : _.abortWithMessage(`changelog.md is missing`)
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 

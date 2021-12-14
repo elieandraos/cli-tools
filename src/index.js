@@ -19,7 +19,7 @@ import {
 
 import release from './release'
 
-export default {
+const _ = {
     // console
     sleep,
     respondOk,
@@ -39,3 +39,5 @@ export default {
     // release
     release,
 }
+
+export default _

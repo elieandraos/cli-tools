@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/core'
-import { respondOk, abortWithMessage } from './../index'
+import _ from './../index'
 
 const createGithubRelease = async (version, body) => {
     try {
@@ -15,9 +15,9 @@ const createGithubRelease = async (version, body) => {
             body: body,
         })
 
-        await respondOk(`created github release ${version}`)
+        await _.respondOk(`created github release ${version}`)
     } catch (e) {
-        abortWithMessage(e)
+        _.abortWithMessage(e)
     }
 }
 
