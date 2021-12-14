@@ -9,7 +9,14 @@ esbuild
         logLevel: 'info',
         platform: 'node',
         outfile: 'dist/index.js',
-        plugins: [nodeExternalsPlugin()],
+        plugins: [
+            nodeExternalsPlugin({
+                dependencies: true,
+                devDependencies: false,
+                peerDependencies: false,
+                optionalDependencies: false,
+            }),
+        ],
     })
     .catch(() => {
         process.exit(1)
