@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.5
+### Changed
+- :bug: provide default export to package entry file
+
 ## v0.0.4
 ### Changed
 -   :zap: optimize bundle size
