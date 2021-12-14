@@ -1,6 +1,6 @@
 import path from 'path'
 import chalk from 'chalk'
-import _ from 'src/index'
+import _ from './../src/index'
 
 const root = path.join(__dirname, '../')
 
