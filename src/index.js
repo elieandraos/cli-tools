@@ -17,7 +17,7 @@ import {
     copy,
 } from './filesystem'
 
-import release from "./release";
+import release from './release'
 
 export {
     // console
@@ -37,5 +37,5 @@ export {
     emptyDirectory,
     copy,
     // release
-    release
+    release,
 }
