@@ -1,32 +1,35 @@
-# The scaffolded package
+# Javascript helpers
 
-#### Includes:
+#### File system:
 
--   :package: **microbundle**, zero-configuration bundler
--   :test_tube: **jest**, testing Framework
--   :rotating_light: **eslint**, tool for identifying and reporting on patterns in JavaScript
--   :lipstick: **prettier**, tool for code formatting
--   :twisted_rightwards_arrows: **dotenv**, loads environment variables from a .env file into process.env
--   :green_heart: continuous integration with gitHub action
--   :rocket: automated semantic version releasing
+| function              | Description                                                                     |
+|-----------------------| ------------------------------------------------------------------------------- |
+| exists(path)          | Checks if a directory exists
+| isDirectory(path)     | Checks if a given path is a directory
+| isFile(path)          | Checks if a given path is a file
+| createDirectory(path) | Creates a directory in a given path
+| emptyDirectory(path)  | Empties a given directory from all its content
+| copy(src,dest)        | Copies (recursive) a given directory/file to the new destination
 
-#### Scripts:
+#### Console:
+| function             | Description                                                                     |
+|----------------------| ------------------------------------------------------------------------------- |
+| sleep(ms)            | Sets a timeout for a given milliseconds
+| respondOk(msg)       | Prints a success console message
+| respondError(msg)    | Prints an error console message
+| abort()              | Stops and exits the script
+| abortWithMesage(msg) | Stops and exits the script with an error message
 
--   `npm run build` _bundles your code with mircobundle_
--   `npm run test` _runs the test suites with jest_
--   `npm run format` _formats the code with prettier_
--   `npm run lint` _check for linting error, apply fixes with es-lint_
--   `npm run release` _creates a gitHub tag and release, publishes to npm registry_
--   `npm run info` _lists the dependencies installed and the ones that are outdated_
+#### Env:
+| function    | Description                                                                     |
+|-------------| ------------------------------------------------------------------------------- |
+| getEnv(var) | Gets the value of the environment variable
+| hasEnv(var) | Checks if the environment variable exists
 
-#### Customization
-
-The package uses the default `eslint:recommended` set of rules and few prettier rules.
-You can customize both of them to your personal flavor.
-
--   es-lint [configuration](https://eslint.org/docs/user-guide/configuring/) and [rules](https://eslint.org/docs/rules/) docs
--   prettier [configuration](https://prettier.io/docs/en/configuration.html) and [options](https://prettier.io/docs/en/options.html) docs
-
+#### Release:
+```javascript
+release() // see release automation details
+```
 # Release automation
 
 #### It will:
