@@ -1,11 +1,17 @@
 # Changelog
 
+## v0.0.3
+
+### Changed
+
+-   :bulb: updated documentation
+
 ## v0.0.2
 
 ### Changed
 
-- :construction_worker: bundle files using esbuild
- 
+-   :construction_worker: bundle files using esbuild
+
 ## v0.0.1
 
 ### Added
