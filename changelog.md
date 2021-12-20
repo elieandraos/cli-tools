@@ -1,4 +1,7 @@
 # Changelog
+## v0.0.6
+### Changed
+- :hammer: update build deployment script
 
 ## v0.0.5
 ### Changed
