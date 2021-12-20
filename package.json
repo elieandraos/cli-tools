@@ -6,7 +6,7 @@
     "main": "dist/index.js",
     "scripts": {
         "info": "npm list -depth 0 && npm list -g --depth=0 && npm outdated || exit 0",
-        "build": "node scripts/build.js",
+        "build": "rm -rf dist && node scripts/build.js",
         "test": "jest --verbose --coverage",
         "lint": "npx eslint src --fix",
         "format": "npx prettier --write .",
