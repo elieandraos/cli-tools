@@ -1,4 +1,8 @@
 # Changelog
+## v0.0.7
+### Changed
+- :wrench: transform module too commonJS in tests
+
 ## v0.0.6
 ### Changed
 - :hammer: update build deployment script
