@@ -1,6 +1,6 @@
 {
     "name": "@elieandraos/cli-tools",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "A collection of nodeJs helper functions and an automated release script",
     "source": "src/index.js",
     "main": "dist/index.js",
