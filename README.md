@@ -1,7 +1,7 @@
 # Javascript helpers
 
 ```javascript
-import * as _ from '@elieandraos/cli-tools'
+import _ from '@elieandraos/cli-tools'
 ```
 
 #### File system:
