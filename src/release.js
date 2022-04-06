@@ -7,7 +7,7 @@ async function release(root) {
 
     await worker.checkIfGitIsInitialized(root)
     await worker.checkIfLoggedInToNpm(root)
-    await worker.checkIfGitDirectoryIsClean(root)
+    //await worker.checkIfGitDirectoryIsClean(root)
     await worker.checkIfEnvironmentVariablesAreSet()
     await worker.checkIfLocalBranchIsTheReleaseBranchConfigured(root)
     await worker.checkIfChangelogExists(root)
@@ -18,9 +18,12 @@ async function release(root) {
     const releaseType = await worker.pickReleaseType()
     const version = await worker.bumpPackageVersion(releaseType, root)
     const releaseChangelog = await worker.parseChangelog(version, root)
-    await worker.createGithubTag(version, root)
-    await worker.createGithubRelease(version, releaseChangelog)
-    await worker.publishToNpmRegistry(version, root)
+
+    //if(releaseChangelog) {
+        await worker.createGithubTag(version, root)
+        await worker.createGithubRelease(version, releaseChangelog)
+        await worker.publishToNpmRegistry(version, root)
+    //}
 }
 
 export default release
