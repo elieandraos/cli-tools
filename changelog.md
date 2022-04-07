@@ -1,4 +1,8 @@
 # Changelog
+## v0.0.8
+### Changed
+- :zap: allow releases without changelog text
+
 ## v0.0.7
 ### Changed
 - :wrench: transform module too commonJS in tests
