@@ -14,10 +14,7 @@ const parseChangelog = async (version, root) => {
         let changelog = result.versions.find((v) => v.title === version)
 
         if (!changelog) {
-            await resetVersionedFiles()
-            _.abortWithMessage(
-                `could not find ${version} changelog - update CHANGELOG.md file`
-            )
+            return "No changelog provided for this release"
         } else {
             await _.respondOk(
                 `parsed version ${version} release content from the changelog file`
